@@ -20,6 +20,6 @@ jobs:
         endpoint: ${endpint}
         project_id: ${projectid}
         function_codetype: file
-        function_urn: ${function_urn}
+        function_urn: urn:fss:cn-north-4:0dd8cb413000906a2fcdc019b5a84546:function:default:qc-test:latest
         function_file: ./python-sample/index.py
 
