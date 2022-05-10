@@ -11,11 +11,8 @@ jobs:
     - name: Check Out 
       uses: actions/checkout@v2
 
-    -name: compress function files or director to zip file
-      run: zip -j index-py.zip ./python-sample/index.py
-
     - name: deploy compress zip function file to huaweicloud functiongraph
-      uses: huaweicloud/functiongraph-deploy-action@v1.0
+      uses: huaweicloud/deploy-functiongraph-action@v1.0
       with:
         ak: ${{ secrets.ACCESSKEY }}
         sk: ${{ secrets.SECRETACCESSKEY }}
@@ -23,4 +20,4 @@ jobs:
         project_id: ${projectid}
         function_codetype: zip
         function_urn: ${function_urn}
-        function_file: ./index-py.zip
+        function_file: ./python-sample/index-py.zip
