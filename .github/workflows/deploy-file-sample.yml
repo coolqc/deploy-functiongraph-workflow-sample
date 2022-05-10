@@ -1,9 +1,9 @@
-name: "commit-master"
+name: "commit-master:python single file"
 
 on:
   push:
     branches: 
-    - 'master'
+    - 'single-file'
 jobs:
   build:
     runs-on: ubuntu-latest
