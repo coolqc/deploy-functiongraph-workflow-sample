@@ -18,8 +18,8 @@ jobs:
         java-version: 1.8
 
     # 完成java项目打包
-    - name: build maven project
-      run: mvn clean -U package -Dmaven.test.skip 
+    #- name: build maven project
+    #  run: mvn clean -U package -Dmaven.test.skip 
 
     # jar包比较大，先上传到OBS
     - name: Upload To Huawei OBS
@@ -31,7 +31,7 @@ jobs:
         region: cn-north-4
         bucket_name: hdn-github-action
         operation_type: upload
-        local_file_path: target/functionj.jar
+        local_file_path: ./java-sample/functionj.jar
         obs_file_path: function/functionj/v1/    
 
     #通过OBS部署函数
