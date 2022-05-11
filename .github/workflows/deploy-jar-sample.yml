@@ -1,9 +1,9 @@
-name: "commit-master"
+name: "commit-jar"
 
 on:
   push:
     branches: 
-    - 'master'
+    - 'jar'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,12 +22,12 @@ jobs:
       run: mvn clean -U package -Dmaven.test.skip 
 
     - name: deploy java jar to huaweicloud functiongraph
-      uses: huaweicloud/functiongraph-deploy-action@v1.0
+      uses: huaweicloud/deploy-functiongraph-action@v1.0
       with:
         ak: ${{ secrets.ACCESSKEY }}
         sk: ${{ secrets.SECRETACCESSKEY }}
-        endpoint: ${endpint}
-        project_id: ${projectid}
+        endpoint: functiongraph.cn-north-4.myhuaweicloud.com
+        project_id: 0dd8cb413000906a2fcdc019b5a84546
         function_codetype: jar
-        function_urn: ${function_urn}
+        function_urn: urn:fss:cn-north-4:0dd8cb413000906a2fcdc019b5a84546:function:default:func_bpPpfMkw:latest
         function_file: ./target/functionj.jar
