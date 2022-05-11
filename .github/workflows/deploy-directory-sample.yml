@@ -1,9 +1,9 @@
-name: "commit-master"
+name: "commit-dir"
 
 on:
   push:
     branches: 
-    - 'master'
+    - 'dir'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,12 +13,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: deploy function directory to huaweicloud functiongraph
-      uses: huaweicloud/functiongraph-deploy-action@v1.0
+      uses: huaweicloud/deploy-functiongraph-action@v1.0
       with:
         ak: ${{ secrets.ACCESSKEY }}
         sk: ${{ secrets.SECRETACCESSKEY }}
-        endpoint: ${endpint}
-        project_id: ${projectid}
+        endpoint: https://functiongraph.cn-north-4.myhuaweicloud.com
+        project_id: 0dd8cb413000906a2fcdc019b5a84546
         function_codetype: dir
-        function_urn: ${function_urn}
+        function_urn: urn:fss:cn-north-4:0dd8cb413000906a2fcdc019b5a84546:function:default:qc-test:latest
         function_file: ./python-sample/function/
