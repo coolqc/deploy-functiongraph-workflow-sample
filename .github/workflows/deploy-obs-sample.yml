@@ -1,9 +1,9 @@
-name: "commit-master"
+name: "commit-obs"
 
 on:
   push:
     branches: 
-    - 'master'
+    - 'obs'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,11 +28,11 @@ jobs:
       with:
         access_key: ${{ secrets.ACCESSKEY }}
         secret_key: ${{ secrets.SECRETACCESSKEY }}
-        region: ${{ env.REGIONID }}
-        bucket_name: bucket-test
+        region: cn-north-4
+        bucket_name: hdn-github-action
         operation_type: upload
         local_file_path: target/functionj.jar
-        obs_file_path: function/functionj/v1.0.0.1/    
+        obs_file_path: function/functionj/v1/    
 
     #通过OBS部署函数
     - name: deploy OBS function file to huaweicloud functiongraph
@@ -40,8 +40,8 @@ jobs:
       with:
         ak: ${{ secrets.ACCESSKEY }}
         sk: ${{ secrets.SECRETACCESSKEY }}
-        endpoint: ${endpint}
-        project_id: ${projectid}
+        endpoint: functiongraph.cn-north-4.myhuaweicloud.com
+        project_id: 0dd8cb413000906a2fcdc019b5a84546
         function_codetype: obs
-        function_urn: ${function_urn}
-        function_file: https://bucket-test.${obs-endpoint}/function/functionj/v1.0.0.1/functionj.jar
+        function_urn: urn:fss:cn-north-4:0dd8cb413000906a2fcdc019b5a84546:function:default:func_bpPpfMkw:latest
+        function_file: https://bucket-test.${obs-endpoint}/function/functionj/v1/functionj.jar
