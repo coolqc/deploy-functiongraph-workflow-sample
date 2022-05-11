@@ -1,4 +1,4 @@
-name: "commit-master:python single file"
+name: "commit-single-file"
 
 on:
   push:
