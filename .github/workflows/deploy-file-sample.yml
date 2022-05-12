@@ -1,9 +1,9 @@
-name: "commit-master"
+name: "commit-single-file"
 
 on:
   push:
     branches: 
-    - 'master'
+    - 'single-file'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
       with:
         ak: ${{ secrets.ACCESSKEY }}
         sk: ${{ secrets.SECRETACCESSKEY }}
-        endpoint: functiongraph.cn-north-4.myhuaweicloud.com
+        endpoint: https://functiongraph.cn-north-4.myhuaweicloud.com
         project_id: 0dd8cb413000906a2fcdc019b5a84546
         function_codetype: file
         function_urn: urn:fss:cn-north-4:0dd8cb413000906a2fcdc019b5a84546:function:default:qc-test:latest

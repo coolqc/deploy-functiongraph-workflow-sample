@@ -41,7 +41,7 @@ def getObjInfoFromObsEvent(event):
         eventName = event['Records'][0]['eventName']
         bucket = obsInfo['bucket']['name']
         objName = obsInfo['object']['key']
-    print("*** obsEventName: %s, srcBucketName: %s, objName: %s" %(eventName, bucket, objName))
+    print("*** 11111obsEventName: %s, srcBucketName: %s, objName: %s" %(eventName, bucket, objName))
     return bucket, objName
 
 def PostObject(obsAddr, bucket, objName, ak, sk):
